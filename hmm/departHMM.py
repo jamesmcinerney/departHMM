@@ -142,7 +142,7 @@ def test(useSynth=True,uid_i=0,ws=20,d_thres=400,t_thres=360,maxIter=50,coarseFa
         
         if useSynth:
             #decide the binary class based on simple threshold (can be extended to include utility of FP, TP etc.):
-            thresh_i = E[:,1].argsort()[-int(0.1*N)][::-1] #take top 10% of values
+            thresh_i = E[:,1].argsort()[-int(0.25*N)] #take the upper quartile
             thresh = E[thresh_i,1] #get the threshold value
             E_class = E[:,1]>thresh
             print 'E_class',E_class
